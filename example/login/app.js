@@ -3,8 +3,9 @@ var express = require('express')
   , util = require('util')
   , MicrosoftStrategy = require('passport-microsoft').Strategy;
 
-var MICROSOFT_GRAPH_CLIENT_ID = "---your--microsoft--graph--client--id---"
-var MICROSOFT_GRAPH_CLIENT_SECRET = "---your--microsoft--graph--client--secret--";
+
+var MICROSOFT_GRAPH_CLIENT_ID = "4c641615-21ae-4614-9dc3-c57db0f2bb46";
+var MICROSOFT_GRAPH_CLIENT_SECRET = "n527Q~NMTDhpB-hR9KLspKBLahljRhSBDNOHa";
 
 
 // Passport session setup.
@@ -65,9 +66,10 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
-
 app.get('/', function (req, res) {
-  res.render('index', { user: req.user });
+    res.render('index', { user: req.user });
+  
+  //res.render('loginpage.ejs', { user: req.user });
 });
 
 app.get('/account', ensureAuthenticated, function (req, res) {
